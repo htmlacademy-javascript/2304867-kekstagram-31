@@ -7,7 +7,7 @@ const getRandomInteger = (a, b) => {
 };
 
 // Получение случайного индекса из указанного диапазона
-const getRandomIndex = (a, b) => {
+const createRandomUniqueIntegerGenerator = (a, b) => {
   const previousValues = [];
   return function () {
     let currentValue = getRandomInteger (a, b);
@@ -22,4 +22,4 @@ const getRandomIndex = (a, b) => {
 // Поиск случайного элемента в переданном массиве
 const getRandomArrayElement = (elements) => elements[getRandomInteger(0, elements.length - 1)];
 
-export {getRandomInteger, getRandomIndex, getRandomArrayElement};
+export {getRandomInteger, createRandomUniqueIntegerGenerator, getRandomArrayElement};

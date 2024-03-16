@@ -1,4 +1,5 @@
-import { photoObjectsCollection } from './array-builder';
+import { initArrayBuilder } from './array-builder';
 
-photoObjectsCollection ();
+//const photos = initArrayBuilder();
+console.log(initArrayBuilder());
 
