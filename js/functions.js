@@ -1,17 +1,9 @@
-
+/* Задачи 2-го модуля:
 
 // Первая задача
 function checkStringLenght (string = '', maxLenght = 1) {
   return string.length <= maxLenght; //  return (string.length <= maxLenght) ? true : false;
 }
-
-/*
-checkStringLenght (10, 40)
-1. Строка для проверки: 'Hellomynameisaskarimfromrussia'
-2. 30 <= 40
-3. true
-*/
-
 function verifyStringLenght (string, maxLenght) {
   if (string.length <= maxLenght) {
     return true;
@@ -19,7 +11,6 @@ function verifyStringLenght (string, maxLenght) {
     return false;
   }
 }
-
 // Вторая задача
 function isPalindrom (string = '') {
   string = string.replaceAll ('', '');
@@ -33,18 +24,24 @@ function isPalindrom (string = '') {
 
   return string === inverseLine; // return string === inverseLine ? true : false
 }
-
-/* isPalindrom(АсКар );
-  0123456
-1. Аскар
-2. аскар
-3. р (6-1)
-4. а (5-1)
-5. к (4-1)
-6. -//-
-7. inverseLine = ракса
-8. аскар === ракса
-9. false
 */
 
+// Выполнение задачи 5.2 модуля
+/*
+'8:00' - начало рабочего дня
+'17:30' - конец рабочего дня
+'14:00' - начало встречи
+90 - продолжительность встречи в минутах
+имяФункции('08:00', '17:30', '14:00', 90); // true
+имяФункции('8:0', '10:0', '8:0', 120);     // true
+имяФункции('08:00', '14:30', '14:00', 90); // false
+имяФункции('14:00', '17:30', '08:0', 90);  // false
+имяФункции('8:00', '17:30', '08:00', 900); // false
+*/
+const isMeetingOnTime = function (workDayStart, wordDayEnd, meetingStart, meetingDuration) {
+  const meetingEnd = meetingStart + meetingDuration;
 
+  if (meetingEnd >= wordDayEnd) {
+    return false;
+  }
+}
