@@ -1,13 +1,11 @@
 import { createRandomUniqueIntegerGenerator, getRandomArrayElement, getRandomInteger} from './utils.js';
 import { MESSAGES, NAMES } from './constant.js';
 
-// Задаем переменные для создания комментария
-const randomCommentId = createRandomUniqueIntegerGenerator(1,200);
-const maxAvatarId = 6;
-const randomCommentAvatar = getRandomInteger(1, maxAvatarId);
-
 // Задаем функцию создания комментария
 const createNewComment = () => {
+  const randomCommentId = createRandomUniqueIntegerGenerator(1,200);
+  const MAX_AVATAR_ID = 6;
+  const randomCommentAvatar = getRandomInteger(1, MAX_AVATAR_ID);
   const randomCommentMessage = getRandomArrayElement(MESSAGES);
   const randomCommentName = getRandomArrayElement(NAMES);
 
@@ -23,8 +21,8 @@ const createNewComment = () => {
 
 // Задаем переменные для добавления в итоговый объект
 const randomPhotoIdGenerator = createRandomUniqueIntegerGenerator(1, 25);
-const maxUrlId = 25;
-const randomPhotoUrlGenerator = createRandomUniqueIntegerGenerator(1, maxUrlId);
+const MAX_URL_ID = 25;
+const randomPhotoUrlGenerator = createRandomUniqueIntegerGenerator(1, MAX_URL_ID);
 const randomPhotoDescription = 'Определенно запоминающиеся впечатления';
 const likesQuantity = createRandomUniqueIntegerGenerator(15, 200);
 
