@@ -38,10 +38,36 @@ function isPalindrom (string = '') {
 имяФункции('14:00', '17:30', '08:0', 90);  // false
 имяФункции('8:00', '17:30', '08:00', 900); // false
 */
-const isMeetingOnTime = function (workDayStart, wordDayEnd, meetingStart, meetingDuration) {
-  const meetingEnd = meetingStart + meetingDuration;
 
-  if (meetingEnd >= wordDayEnd) {
-    return false;
-  }
+const HOUR_TIME = {
+  MINUTE: 60, // 1 * 60
+};
+
+
+//Функция - возможно ли уместить совещание в рабочее время
+
+function isMeetingFitInWorkTime(workStartDt, workEndDt, meetingStartDt, meetingDuration) {
+  const startWorkTime = convertStringToMinutes(workStartDt);
+  const endWorkTime = convertStringToMinutes(workEndDt);
+  const startMeetingTime = convertStringToMinutes(meetingStartDt);
+  const endMeetingTime = startMeetingTime + meetingDuration;
+
+  return (startWorkTime <= startMeetingTime) && (endWorkTime >= endMeetingTime);
+};
+
+//Функция получения количества минут в переданной строке в виде времени "clock"
+
+function convertStringToMinutes(clockString) {
+  const doubleDotIndex = clockString.indexOf(":");
+  const hoursString = clockString.slice(0, doubleDotIndex);
+  const minutesString = clockString.slice(doubleDotIndex + 1);
+
+  return parseInt(hoursString) * HOUR_TIME.MINUTE + parseInt(minutesString);
 }
+
+console.log(isMeetingFitInWorkTime('08:00', '17:30', '14:00', 90));
+console.log(isMeetingFitInWorkTime('8:0', '10:0', '8:0', 120));
+console.log(isMeetingFitInWorkTime('08:00', '14:30', '14:00', 90));
+console.log(isMeetingFitInWorkTime('14:00', '17:30', '08:0', 90));
+console.log(isMeetingFitInWorkTime('8:00', '17:30', '08:00', 900));
+console.log(isMeetingFitInWorkTime('8:00', '17:30', '19:00', 900));
