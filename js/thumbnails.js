@@ -15,8 +15,8 @@ const generatePictures = (addPictures) => {
   addPictures.forEach((photo) => {
     const thumbnail = picturesTemplate.cloneNode(true);
     const image = thumbnail.querySelector('.picture__img');
-    const likes = thumbnail.querySelector('picture__likes');
-    const comments = thumbnail.querySelector('picture__comments');
+    const likes = thumbnail.querySelector('.picture__likes');
+    const comments = thumbnail.querySelector('.picture__comments');
 
     image.src = photo.url;
     image.alt = photo.description;
