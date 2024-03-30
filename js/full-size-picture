@@ -1,0 +1,38 @@
+const fullSizePicture = document.querySelector('.big-picture');
+const body = document.querySelector('body');
+const closeButton = fullSizePicture.querySelector('.cancel');
+const picture = fullSizePicture.querySelector('.big-picture__img img');
+const likesCounter = fullSizePicture.querySelector('.likes-count');
+const commentCounter = fullSizePicture.querySelector('.social__comment-shown-count');
+const totalCommentCount = fullSizePicture.querySelector('.social__comment-total-count');
+const description = fullSizePicture.querySelector('.social__caption');
+let onDocumentKeyDown = () => {};
+
+const closeFullScreen = () => {
+  fullSizePicture.classList.add('hidden');
+  body.classList.remove('modal-open');
+  document.addEventListener('keydown', onDocumentKeyDown);
+};
+
+onDocumentKeyDown = (evt) => {
+  if(evt.key === 'Escape') {
+    closeFullScreen();
+  }
+};
+
+const fillFullSizePicture = (photo) => {
+  picture.src = photo.url;
+  likesCounter.textContent = photo.likes;
+  commentCounter.textContent = photo.comments.length;
+  totalCommentCount.textContent = photo.comments.length;
+  description.textContent = photo.description;
+};
+
+export const openFullScreen = (photo) => {
+  fullSizePicture.classList.remove('hidden');
+  body.classList.add('modal-open');
+  document.addEventListener('keydown', onDocumentKeyDown);
+  fillFullSizePicture(photo);
+};
+
+closeButton.addEventListener('click', closeFullScreen);
