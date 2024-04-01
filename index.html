@@ -156,18 +156,11 @@
           <!-- Комментарии к изображению -->
           <div class="social__comment-count"><span class="social__comment-shown-count">5</span> из <span class="social__comment-total-count">125</span> комментариев</div>
           <ul class="social__comments">
-            <li class="social__comment">
-              <img class="social__picture" src="img/avatar-4.svg" alt="Аватар комментатора фотографии" width="35" height="35">
-              <p class="social__text">Мега фото! Просто обалдеть. Как вам так удалось?</p>
-            </li>
-            <li class="social__comment">
-              <img class="social__picture" src="img/avatar-3.svg" alt="Аватар комментатора фотографии" width="35" height="35">
-               <p class="social__text">Да это фоташоп!!!!!!!!</p>
-            </li>
+            <!-- Шаблон комментария с id="comment" на 223 строке -->
           </ul>
 
           <!-- Кнопка для загрузки новой порции комментариев -->
-          <button type="button" class="social__comments-loader  comments-loader hidden">Загрузить еще</button>
+          <button type="button" class="social__comments-loader  comments-loader">Загрузить еще</button>
 
           <!-- Форма для отправки комментария -->
           <div class="social__footer">
@@ -225,6 +218,13 @@
         <button type="button" class="success__button">Круто!</button>
       </div>
     </section>
+  </template>
+
+  <template id="comment">
+    <li class="social__comment">
+      <img class="social__picture" src="" alt="Аватар комментатора фотографии" width="35" height="35">
+      <p class="social__text"></p>
+    </li>
   </template>
 
     <!-- Сообщение с ошибкой загрузки изображений от других пользователей -->
