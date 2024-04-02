@@ -5,6 +5,7 @@
   Количество лайков likes выведите в блок .picture__likes.
   Количество комментариев comments выведите в блок .picture__comments.
 */
+import { openFullScreen } from './full-size-picture';
 
 //Задаем шаблон и контейнер, куда будут отрисовываться фотографии
 const picturesTemplate = document.querySelector('#picture').content.querySelector('.picture');
@@ -22,6 +23,7 @@ const generatePictures = (addPictures) => {
     image.alt = photo.description;
     likes.textContent = photo.likes;
     comments.textContent = photo.comments.length;
+    thumbnail.addEventListener('click', () => openFullScreen(photo));
     picturesContainer.appendChild(thumbnail);
   });
 };

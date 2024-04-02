@@ -27,21 +27,24 @@ const randomPhotoDescription = 'Определенно запоминающие�
 const likesQuantity = createRandomUniqueIntegerGenerator(15, 200);
 
 // Функция для создания нового объекта (описания фотографии)
-const createNewPhotoDescription = () => ({
-  id: randomPhotoIdGenerator(),
-  url: `photos/${randomPhotoUrlGenerator()}.jpg`,
-  description: randomPhotoDescription,
-  likes: likesQuantity(),
-  comments: createNewComment()
-});
+const createNewPhotoDescription = () => {
+  const ramdomCommentsCount = getRandomInteger(0,30); // задаем счетчик комментариев
+  const commentsContainer = Array.from({length: ramdomCommentsCount}, createNewComment); // создаем список комментариев
+
+  return {
+    id: randomPhotoIdGenerator(),
+    url: `photos/${randomPhotoUrlGenerator()}.jpg`,
+    description: randomPhotoDescription,
+    likes: likesQuantity(),
+    comments: commentsContainer
+  };
+};
 
 // Создаем массив полученных объектов
 const initArrayBuilder = () => {
   const NECESSARY_OBJECTS_COUNT = 25; // задаем необходимое количество сгенерированных объектов
   return Array.from({length: NECESSARY_OBJECTS_COUNT}, createNewPhotoDescription);
 };
-
-//const photoObjectsCollection = Array.from({length: NECESSARY_OBJECTS_COUNT}, createNewPhotoDescription);
 
 export {initArrayBuilder};
 
