@@ -1,13 +1,15 @@
+import { renderComment} from './comment-rendering';
+
 const fullSizePicture = document.querySelector('.big-picture');
 const body = document.querySelector('body');
 const closeButton = fullSizePicture.querySelector('.cancel');
 const picture = fullSizePicture.querySelector('.big-picture__img img');
 const likesCounter = fullSizePicture.querySelector('.likes-count');
-const commentCounter = fullSizePicture.querySelector('.social__comment-shown-count');
+//const commentCounter = fullSizePicture.querySelector('.social__comment-shown-count');
 const totalCommentCount = fullSizePicture.querySelector('.social__comment-total-count');
 const description = fullSizePicture.querySelector('.social__caption');
-const commentList = document.querySelector('.social__comments');
-const commentTemplate = document.querySelector('#comment').content.querySelector('.social__comment');
+//const commentList = document.querySelector('.social__comments');
+//const commentTemplate = document.querySelector('#comment').content.querySelector('.social__comment');
 let onDocumentKeyDown = () => {};
 
 const closeFullScreen = () => {
@@ -22,7 +24,7 @@ onDocumentKeyDown = (evt) => {
   }
 };
 
-const renderComment = (comments) => {
+/*const renderComment = (comments) => {
   commentList.innerHTML = '';
   const fragment = document.createDocumentFragment();
   comments.forEach((comment) => {
@@ -33,11 +35,12 @@ const renderComment = (comments) => {
   });
   commentList.appendChild(fragment);
 };
+*/
 
 const fillFullSizePicture = (photo) => {
   picture.src = photo.url;
   likesCounter.textContent = photo.likes;
-  commentCounter.textContent = photo.comments.length;
+  //commentCounter.textContent = photo.comments.length;
   totalCommentCount.textContent = photo.comments.length;
   description.textContent = photo.description;
   renderComment(photo.comments);
